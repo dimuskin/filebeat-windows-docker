@@ -3,6 +3,11 @@ name: Build and Push Docker Image ver. 8
 on:
   workflow_dispatch:
 
+env:
+  FILEBEAT_VERSION: 8.19.3
+  FILEBEAT_SHA512: aa5d30c96aecf2cb605af9f3d0b70728e8b85a24dc19a0d9999894db91ddafc6ad52de466e7a8b263219b1563486773b6c7f90aaf708a320aa2ea758f94d21e2
+  IMAGE_TAG: 8.19.3-ltsc2019
+
 jobs:
   build-and-push:
     runs-on: self-hosted
@@ -19,8 +24,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -f Dockerfile --build-arg FILEBEAT_VERSION=8.19.3 --build-arg FILEBEAT_SHA512=aa5d30c96aecf2cb605af9f3d0b70728e8b85a24dc19a0d9999894db91ddafc6ad52de466e7a8b263219b1563486773b6c7f90aaf708a320aa2ea758f94d21e2 -t ${{ secrets.DOCKERHUB_USERNAME }}/filebeat-windows:8.19.3-ltsc2019 .
+          docker build -f Dockerfile --build-arg FILEBEAT_VERSION=${{ env.FILEBEAT_VERSION }} --build-arg FILEBEAT_SHA512=${{ env.FILEBEAT_SHA512 }} -t ${{ secrets.DOCKERHUB_USERNAME }}/filebeat-windows:${{ env.IMAGE_TAG }} .
 
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/filebeat-windows:8.19.3-ltsc2019
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/filebeat-windows:${{ env.IMAGE_TAG }}
