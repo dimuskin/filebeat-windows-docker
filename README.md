@@ -200,6 +200,6 @@ Filebeat is provided by Elastic under its upstream license. Review the license t
 Maintained by `dimuskin`.
 When filing issues, include:
 
-* Image tag: `8.18.5-ltsc2019`
+* Image tag:
 * Node OS: Windows Server 2019
 * Minimal `filebeat.yml` to reproduce
