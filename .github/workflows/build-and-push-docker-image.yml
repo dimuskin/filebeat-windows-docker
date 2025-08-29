@@ -1,13 +1,11 @@
 name: Build and Push Docker Image
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   build-and-push:
-    runs-on: windows-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
@@ -21,7 +19,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build --build-arg FILEBEAT_VERSION=8.18.5 --build-arg FILEBEAT_SHA512=68d607d1d9ed1a2111905978090ec2a47e24a5e22f6381e693aed081771aae2f674482d78a115dae7dbb2cf4012a517ca11c734a9bbca485e100c15cf26ff89b -t ${{ secrets.DOCKERHUB_USERNAME }}/filebeat-windows:8.18.5 .
+          docker build -f Dockerfile.8 --build-arg FILEBEAT_VERSION=8.18.5 --build-arg FILEBEAT_SHA512=68d607d1d9ed1a2111905978090ec2a47e24a5e22f6381e693aed081771aae2f674482d78a115dae7dbb2cf4012a517ca11c734a9bbca485e100c15cf26ff89b -t ${{ secrets.DOCKERHUB_USERNAME }}/filebeat-windows:8.18.5 .
 
       - name: Push Docker image
         run: |
