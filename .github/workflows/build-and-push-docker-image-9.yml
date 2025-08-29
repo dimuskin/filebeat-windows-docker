@@ -39,3 +39,6 @@ jobs:
           release_name: Release ${{ env.IMAGE_TAG }}
           draft: false
           prerelease: false
+          body: |
+            Docker image for Filebeat version ${{ env.FILEBEAT_VERSION }}.
+            Use: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/filebeat-windows:${{ env.IMAGE_TAG }}
