@@ -197,7 +197,7 @@ Filebeat is provided by Elastic under its upstream license. Review the license t
 
 ## Maintainers
 
-Maintained by `dimuskin`.
+Maintained by @dimuskin.
 When filing issues, include:
 
 * Image tag:
