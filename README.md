@@ -25,6 +25,8 @@ Lightweight log shipper for Windows containers and hosts (Filebeat 8.x and 9.x) 
 ## Supported tags and platforms
 
 * `dimuskin/filebeat-windows:8.19.3-ltsc2019` — `windows/amd64` (ServerCore 2019)
+* `dimuskin/filebeat-windows:9.1.3-ltsc2019`  — `windows/amd64` (ServerCore 2019)
+
 
 > TODO : If you later publish a Windows Server 2022 variant, add `:8.19.3-ltsc2022` and extend this README accordingly.
 
