@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/windows/servercore:ltsc2019 AS core
-ARG FILEBEAT_VERSION=8.18.5
-ARG FILEBEAT_SHA512=68d607d1d9ed1a2111905978090ec2a47e24a5e22f6381e693aed081771aae2f674482d78a115dae7dbb2cf4012a517ca11c734a9bbca485e100c15cf26ff89b
+ARG FILEBEAT_VERSION
+ARG FILEBEAT_SHA512
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 RUN $url = ('https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{0}-windows-x86_64.zip' -f $env:FILEBEAT_VERSION); \
@@ -25,7 +25,7 @@ RUN $url = ('https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{0}-
 
 FROM mcr.microsoft.com/windows/nanoserver:ltsc2019
 
-ARG FILEBEAT_VERSION=8.18.5
+ARG FILEBEAT_VERSION
 ARG MACHINEGUID=FCKGW-RHQQ2-YXRKT-8TG6W-2B7Q8
 
 COPY --from=core /filebeat/filebeat-${FILEBEAT_VERSION}-windows-x86_64 /filebeat

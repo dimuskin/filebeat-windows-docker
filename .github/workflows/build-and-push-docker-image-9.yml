@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build and Push Docker Image ver. 9
 
 on:
   workflow_dispatch:
@@ -19,8 +19,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -f Dockerfile.8 --build-arg FILEBEAT_VERSION=8.18.5 --build-arg FILEBEAT_SHA512=68d607d1d9ed1a2111905978090ec2a47e24a5e22f6381e693aed081771aae2f674482d78a115dae7dbb2cf4012a517ca11c734a9bbca485e100c15cf26ff89b -t ${{ secrets.DOCKERHUB_USERNAME }}/filebeat-windows:8.18.5-ltsc2019 .
+          docker build -f Dockerfile --build-arg FILEBEAT_VERSION=9.1.3 --build-arg FILEBEAT_SHA512=9f6924cc9223e481f356b99e8255dc5f6068fe5c44e6683090187921367e2f29591a2c5f525b107210cc6700dd426de44fd40080146fd81ba7d838152b5c4116 -t ${{ secrets.DOCKERHUB_USERNAME }}/filebeat-windows:9.1.3-ltsc2019 .
 
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/filebeat-windows:8.18.5-ltsc2019
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/filebeat-windows:9.1.3-ltsc2019
