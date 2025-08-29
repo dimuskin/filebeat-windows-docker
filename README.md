@@ -1,4 +1,4 @@
-# filebeat-windows
+# filebeat-windows-docker
 
 Lightweight log shipper for Windows containers and hosts (Filebeat 8.x and 9.x) built for **Windows Server LTSC 2019** nodes.
 
